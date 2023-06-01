@@ -7,7 +7,7 @@ describe('Purchase test', () => {
 
       it('Order test', () => {
         
-        function orderProduct (product) {
+       const product = 'Acqua Di Gio Pour Homme'
 
             homePage.visit();
             cy.log(`Order: ${product}`)
@@ -44,9 +44,6 @@ describe('Purchase test', () => {
             .should('contain', ' Your Order Has Been Processed!')
             .children()
             .should('have.class', 'fa-thumbs-up');
-        }
-
-      orderProduct('Acqua Di Gio Pour Homme')
 
 
       })
