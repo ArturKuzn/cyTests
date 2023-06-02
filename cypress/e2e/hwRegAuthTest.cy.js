@@ -1,9 +1,13 @@
 /// <reference types="cypress"/>
 
+import {faker} from "@faker-js/faker"
+
+import {login} from '../support/helper.js'
+
 describe('Registration and authorization tests', () => {
 
     beforeEach(() => {
-        cy.visit('https://automationteststore.com/');
+        cy.visit('/');
         cy.get('#customer_menu_top a').click();
       })
   
@@ -50,16 +54,15 @@ describe('Registration and authorization tests', () => {
         });
       }) 
   
-      const fields = [
-        { locator: '#AccountFrm_firstname', value: 'Artur' },
-        { locator: '#AccountFrm_lastname', value: 'Kuz' },
-        { locator: '#AccountFrm_email', value: 'newemailtest12345@test.com' },
-        { locator: '#AccountFrm_address_1', value: 'Sumska' },
-        { locator: '#AccountFrm_city', value: 'Kharkov' },
-        { locator: '#AccountFrm_postcode', value: '61146' },
-        { locator: '#AccountFrm_loginname', value: 'testusernew123456' },
-        { locator: '#AccountFrm_password', value: 'verySecurePassword' },
-        { locator: '#AccountFrm_confirm', value: 'verySecurePassword' }
+      const user = [
+        { locator: '#AccountFrm_firstname', value: faker.person.firstName() },
+        { locator: '#AccountFrm_lastname', value: faker.person.lastName() },
+        { locator: '#AccountFrm_email', value: faker.internet.email() },
+        { locator: '#AccountFrm_address_1', value: faker.location.street() },
+        { locator: '#AccountFrm_city', value: faker.location.city() },
+        { locator: '#AccountFrm_postcode', value: faker.location.zipCode()},
+        { locator: '#AccountFrm_loginname', value: faker.internet.userName() },
+        { locator: '#AccountFrm_password', value: faker.internet.password({ length: 20 }) },
       ]; 
   
       it('Registration positive test', () => {
@@ -71,9 +74,10 @@ describe('Registration and authorization tests', () => {
         }
         
   
-        fields.forEach(({locator, value }) => {
+        user.forEach(({locator, value }) => {
             fillFields(locator, value);
         });
+        cy.get('#AccountFrm_confirm').type(user[7].value)
         cy.get('#AccountFrm_zone_id').select('3522')
         cy.get('#AccountFrm_agree').check();
         cy.get('[title="Continue"]').click();
@@ -90,15 +94,20 @@ describe('Registration and authorization tests', () => {
   
   
         cy.get('.subtext')
-        .should('contain', fields[0].value);
+        .should('contain', user[0].value);
+
+
+        cy.clearAllCookies();
+
+        login(user)
   
       })
   
   
       it('Authorization test', () => {
   
-        cy.get('#loginFrm_loginname').type(fields[6].value);
-        cy.get('#loginFrm_password').type(fields[7].value);
+        cy.get('#loginFrm_loginname').type(user[6].value);
+        cy.get('#loginFrm_password').type(user[7].value);
   
         cy.get('[title="Login"]').click();
   
@@ -108,7 +117,7 @@ describe('Registration and authorization tests', () => {
         .should('have.class', 'fa-user');
   
         cy.get('.subtext')
-        .should('contain', fields[0].value);
+        .should('contain', user[0].value);
       
       })
   
