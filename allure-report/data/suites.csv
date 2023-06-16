@@ -1,0 +1,8 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Jun 15 21:20:54 EEST 2023","Thu Jun 15 21:20:57 EEST 2023","3170","","","","","","Authorization",""
+"passed","Thu Jun 15 21:21:08 EEST 2023","Thu Jun 15 21:21:14 EEST 2023","6151","","Purchase test","","","","Order test",""
+"passed","Thu Jun 15 21:21:18 EEST 2023","Thu Jun 15 21:21:27 EEST 2023","8521","","","","","","Order",""
+"skipped","Thu Jun 15 21:21:05 EEST 2023","Thu Jun 15 21:21:05 EEST 2023","1","","Registration and authorization tests","","","","Authorization test",""
+"passed","Thu Jun 15 21:21:31 EEST 2023","Thu Jun 15 21:21:35 EEST 2023","3678","","Search/navigation test","","","","Search test",""
+"skipped","Thu Jun 15 21:21:05 EEST 2023","Thu Jun 15 21:21:05 EEST 2023","3","","Registration and authorization tests","","","","Registration positive test",""
+"passed","Thu Jun 15 21:21:01 EEST 2023","Thu Jun 15 21:21:05 EEST 2023","3665","","Registration and authorization tests","","","","Registration negative test",""

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-06-15T18:21:08.794Z",
+    "end": "2023-06-15T18:21:14.985Z",
+    "duration": 6191,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b9faabcd-aa15-42e2-96f4-2916dd10ddc2",
+      "title": "",
+      "fullFile": "cypress/e2e/order.cy.js",
+      "file": "cypress/e2e/order.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "084730ec-8fe1-4100-90ec-9384561940e2",
+          "title": "Purchase test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Order test",
+              "fullTitle": "Purchase test Order test",
+              "timedOut": null,
+              "duration": 6149,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const product = 'Acqua Di Gio Pour Homme';\n_HomePage.default.visit();\ncy.log(`Order: ${product}`);\ncy.get('.search-query').type(product).siblings('div').click();\ncy.get('.breadcrumb').should('contain', product);\ncy.contains('Add to Cart').click();\ncy.get('.topcart .label').should('contain', '1');\ncy.get('#cart_checkout2').click();\n_LoginPage.default.submitLoginForm('testusernew1234567', 'verySecurePassword');\ncy.get('.confirm_products').should('contain', product);\ncy.get('#checkout_btn').click();\ncy.get('.topcart .label').should('contain', '0');\ncy.get('.breadcrumb').should('contain', 'Success');\ncy.get('.maintext').should('contain', ' Your Order Has Been Processed!').children().should('have.class', 'fa-thumbs-up');",
+              "err": {},
+              "uuid": "91bbe720-ab01-4575-ad9f-1f24ae97cfcc",
+              "parentUUID": "084730ec-8fe1-4100-90ec-9384561940e2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "91bbe720-ab01-4575-ad9f-1f24ae97cfcc"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6149,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

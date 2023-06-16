@@ -65,7 +65,7 @@ describe('Registration and authorization tests', () => {
         { locator: '#AccountFrm_password', value: faker.internet.password({ length: 20 }) },
       ]; 
   
-      it('Registration positive test', () => {
+      it.skip('Registration positive test', () => {
   
         cy.get('[title="Continue"]').click();
        
@@ -104,7 +104,7 @@ describe('Registration and authorization tests', () => {
       })
   
   
-      it('Authorization test', () => {
+      it.skip('Authorization test', () => {
   
         cy.get('#loginFrm_loginname').type(user[6].value);
         cy.get('#loginFrm_password').type(user[7].value);

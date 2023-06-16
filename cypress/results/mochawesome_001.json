@@ -1,0 +1,144 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 2,
+    "failures": -1,
+    "start": "2023-06-15T18:21:01.803Z",
+    "end": "2023-06-15T18:21:05.541Z",
+    "duration": 3738,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 66.66666666666666,
+    "other": 1,
+    "hasOther": true,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5c21b72c-cc8e-45de-b2d2-4abe1a3ee9b0",
+      "title": "",
+      "fullFile": "cypress/e2e/hwRegAuthTest.cy.js",
+      "file": "cypress/e2e/hwRegAuthTest.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f7736ae9-287b-49b0-8595-68acdeba39a4",
+          "title": "Registration and authorization tests",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Registration negative test",
+              "fullTitle": "Registration and authorization tests Registration negative test",
+              "timedOut": null,
+              "duration": 3664,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('[title=\"Continue\"]').click();\ncy.get('[title=\"Continue\"]').click();\ncy.get('.alert-danger').should('contain', 'Error: You must agree to the Privacy Policy!').and('have.css', 'background-color', 'rgb(242, 222, 222)');\nfunction checkRequiredFields(fieldName, id, errorMessage, color = 'rgb(169, 68, 66)', color2 = 'rgb(255, 0, 0)') {\n  cy.get(`div.form-group.has-error:contains(\"${fieldName}\")`).should('contain', errorMessage).find(`.control-label:contains(\"${fieldName}\")`).should('have.css', 'color', color).siblings().children(`#${id}`).should('have.css', 'border-color', color).siblings().should('have.css', 'border-color', color).children().should('have.class', 'required').and('have.css', 'color', color2);\n}\nconst requiredFields = [{\n  fieldName: 'First Name',\n  id: 'AccountFrm_firstname',\n  errorMessage: 'First Name must be between 1 and 32 characters!'\n}, {\n  fieldName: 'Last Name',\n  id: 'AccountFrm_lastname',\n  errorMessage: 'Last Name must be between 1 and 32 characters!'\n}, {\n  fieldName: 'E-Mail',\n  id: 'AccountFrm_email',\n  errorMessage: 'Email Address does not appear to be valid!'\n}, {\n  fieldName: 'Address 1',\n  id: 'AccountFrm_address_1',\n  errorMessage: 'Address 1 must be between 3 and 128 characters!'\n}, {\n  fieldName: 'City',\n  id: 'AccountFrm_city',\n  errorMessage: 'City must be between 3 and 128 characters!'\n}, {\n  fieldName: 'Region / State:',\n  id: 'AccountFrm_zone_id',\n  errorMessage: 'Please select a region / state!'\n}, {\n  fieldName: 'ZIP Code:',\n  id: 'AccountFrm_postcode',\n  errorMessage: 'Zip/postal code must be between 3 and 10 characters!'\n}, {\n  fieldName: 'Login name:',\n  id: 'AccountFrm_loginname',\n  errorMessage: 'Login name must be alphanumeric only and between 5 and 64 characters!'\n}, {\n  fieldName: 'Password:',\n  id: 'AccountFrm_password',\n  errorMessage: 'Password must be between 4 and 20 characters!'\n}];\nrequiredFields.forEach(({\n  fieldName,\n  id,\n  errorMessage\n}) => {\n  checkRequiredFields(fieldName, id, errorMessage);\n});",
+              "err": {},
+              "uuid": "042e769f-d9a9-4560-81f5-80e80cd22044",
+              "parentUUID": "f7736ae9-287b-49b0-8595-68acdeba39a4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Registration positive test",
+              "fullTitle": "Registration and authorization tests Registration positive test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.get('[title=\"Continue\"]').click();\nfunction fillFields(locator, value) {\n  cy.get(locator).type(value);\n}\nuser.forEach(({\n  locator,\n  value\n}) => {\n  fillFields(locator, value);\n});\ncy.get('#AccountFrm_confirm').type(user[7].value);\ncy.get('#AccountFrm_zone_id').select('3522');\ncy.get('#AccountFrm_agree').check();\ncy.get('[title=\"Continue\"]').click();\ncy.get('.maintext').should('contain', ' Your Account Has Been Created!').children().should('have.class', 'fa-thumbs-up');\ncy.get('.mb40').should('contain', 'Congratulations! Your new account has been successfully created!');\ncy.get('[title=\"Continue\"]').click();\ncy.get('.subtext').should('contain', user[0].value);\ncy.clearAllCookies();\n(0, _helper.login)(user);",
+              "err": {},
+              "uuid": "6fd1b43c-67db-4db7-b3ad-6a6ca2bf5950",
+              "parentUUID": "f7736ae9-287b-49b0-8595-68acdeba39a4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Authorization test",
+              "fullTitle": "Registration and authorization tests Authorization test",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "cy.get('#loginFrm_loginname').type(user[6].value);\ncy.get('#loginFrm_password').type(user[7].value);\ncy.get('[title=\"Login\"]').click();\ncy.get('.maintext').should('contain', ' My Account').children().should('have.class', 'fa-user');\ncy.get('.subtext').should('contain', user[0].value);",
+              "err": {},
+              "uuid": "26e222f0-279b-4e60-9ba8-057b1af01ef0",
+              "parentUUID": "f7736ae9-287b-49b0-8595-68acdeba39a4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "042e769f-d9a9-4560-81f5-80e80cd22044"
+          ],
+          "failures": [],
+          "pending": [
+            "6fd1b43c-67db-4db7-b3ad-6a6ca2bf5950",
+            "26e222f0-279b-4e60-9ba8-057b1af01ef0"
+          ],
+          "skipped": [],
+          "duration": 3664,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/results",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
