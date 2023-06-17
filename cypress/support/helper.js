@@ -42,3 +42,28 @@ export function findProduct(productName){
         }
     })
 }
+
+
+export function loginViaApi (user) {
+    cy.request('GET', '/index.php?rt=account/login').then((response) => {
+        const token = Cypress.$('#loginFrm [name="csrftoken"]', response.body).attr('value');
+        cy.log(token);
+        const csrfInstance = Cypress.$('#loginFrm [name="csrfinstance"]', response.body).attr('value');
+        cy.log(csrfInstance);
+    
+        const formData = new FormData();
+        formData.append('csrftoken', token);
+        formData.append('csrfinstance', csrfInstance);
+        formData.append('loginname', user.username);
+        formData.append('password', user.password);
+    
+        cy.request({
+          method: 'POST',
+          url: '/index.php?rt=account/login',
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          },
+          body: formData
+        });
+      });
+}
