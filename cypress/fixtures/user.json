@@ -1,12 +1,12 @@
 {
-  "firstName": "FirstTestName",
-  "lastName": "LastTestName",
-  "email": "FirstTestName11111111111111qa@mail.com",
-  "address": "Test Address str.",
-  "city": "Kyiv",
-  "zone": "Kyiv",
-  "postCode": "37289",
-  "countryId": "Ukraine",
-  "username": "testusernew123456",
+  "firstName": "Artur",
+  "lastName": "Kuz",
+  "email": "newemailtest123456@test.com",
+  "address": "Sumska",
+  "city": "Kharkov",
+  "zone": "Bristol",
+  "postCode": "61146",
+  "countryId": "United Kingdom",
+  "username": "testusernew1234567",
   "password": "verySecurePassword"
 }
