@@ -4,10 +4,10 @@ pipeline {
     tools {nodejs "NodeJS"}
 
 
-            stages {
-                stage('Install dependencies') { 
-                    steps {
-                        sh 'npm ci'
+    stages {
+            stage('Install dependencies') { 
+                steps {
+                    sh 'npm ci'
             }
         }
             stage('Cypress run') { 
@@ -18,10 +18,10 @@ pipeline {
                 }
             }
         }
-                stage('Generate report') { 
-                    steps {
-                        sh 'npm run allure:generateReport'
-                        allue(
+            stage('Generate report') { 
+                steps {
+                    sh 'npm run allure:generateReport'
+                    allure(
                             results: [[path: 'allure-results']]
                         )
             }
