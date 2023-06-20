@@ -18,6 +18,6 @@
     "mochawesome:generate": "npx marge mochawesome.json",
     "cy:testWithAllureReport": "NO_COLOR=1 npx cypress run --env allure=true",
     "allure:clearData": "rm -rf allure-report allure-results",
-    "allure:generateReport": "npx allure generate"
+    "allure:generateReport": "npx allure generate --clean -o allure-report"
   }
 }
