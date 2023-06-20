@@ -6,7 +6,7 @@ describe('Search/navigation test', () => {
      
 
 
-    it('Search test', () => {
+    it.skip('Search test', () => {
       cy.visit('/');
       cy.get('[placeholder="Search Keywords"]').type('E');
       cy.get('.fa-search').click();

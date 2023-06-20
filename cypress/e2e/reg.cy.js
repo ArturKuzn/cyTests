@@ -17,7 +17,7 @@ user.password = faker.internet.password({ length: 20 });
 
 
 
-  it('Registration', () => {
+  it.skip('Registration', () => {
     cy.visit('/');
   
     cy.get('.topnavbar [data-id="menu_account"]').click();

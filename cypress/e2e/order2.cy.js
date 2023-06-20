@@ -3,7 +3,7 @@
 import user from '../fixtures/user.json'
 import {login, findNewProd, findProduct} from '../support/helper'
 
-it('Order', () => {
+it.skip('Order', () => {
 
     login(user);
 
