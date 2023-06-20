@@ -16,7 +16,7 @@
     "mochawesome:mergeResults": "npx mochawesome-merge \"cypress/results/*.json\" > mochawesome.json",
     "mochawesome:generate": "npx marge mochawesome.json",
     "cy:testWithAllureReport": "npx cypress run --env allure=true",
-    "allue:clearData": "rm -rf allure-report allure-results",
-    "allue:generateReport": "npx allure generate"
+    "allure:clearData": "rm -rf allure-report allure-results",
+    "allure:generateReport": "npx allure generate"
   }
 }
